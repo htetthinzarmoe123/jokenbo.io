@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Jo_Ken_Po</title>
+    <meta name="viewpoint" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body style="font-family: Times New Roman;">
+   <div class="container-fluid panel body">
+   <div class="row">
+   		<div class="col-md-12">
+   			<h3 style="font-weight: bold;margin-top: 2em;">Welcome to the Jo-Ken-Po Game World</h3>
+   			<p style="font-weight: bold; font-style: italic; font-size: 15px;">Let! start to play.</p>
+   		</div>
+   </div>
+   <div id="contain">
+   	    <div class="row">
+    	    <div class="col-md-4 col-lg-12 col-sm-4">
+    		  	<div>
+    				<button id="btn1" onmouseover="this.style.background='black';this.style.color='blue';" onmouseout="this.style.background='white'; this.style.color='black';" style=" width: 5em;height: 3em;margin-top:3em;margin-left: 1em;margin-bottom: 3em;" onclick="play(1);">PAPER</button>
+
+    				<button id="btn2" onmouseover="this.style.background='black';this.style.color='blue';" onmouseout="this.style.background='white'; this.style.color='black';" style=" width: 6em;height: 3em;margin-top:3em;margin-left: 1em;margin-bottom: 3em;" onclick="play(2);">SCISSORS</button>
+
+    				<button id="btn3" onmouseover="this.style.background='black';this.style.color='blue';" onmouseout="this.style.background='white'; this.style.color='black';" style=" width: 5em;height: 3em;margin-top:3em;margin-left: 1em;margin-bottom: 3em;" onclick="play(3);">STONE</button>
+    			</div>
+    	   </div>
+        </div>
+
+        <div id="section-one" style="margin-bottom: 2em;">
+        	<div class="row">
+        		<div class="col-md-12">
+        				<span style="float:left;margin-left: 1em;font-size: 2em;">YOU:</span>
+ 						<span style="margin-left: 3em;font-size: 2em;">COMPUTER:</span>
+        		</div>
+ 			</div>
+ 			<div class="row">
+ 				<div class="col-md-12">
+ 					<table>
+ 						<tr>
+ 							<td>
+ 								 <div id="player" style="float:left;margin-left: 1em;font-size: 2em;"></div>
+ 							</td>
+ 							<td>
+ 								<div id="pc" style="margin-left:3em;font-size: 2em;"></div>
+ 							</td>
+ 						</tr>
+ 					</table>
+ 				</div>
+ 			</div>
+        </div>
+
+        <div id="section-two">
+        	<div class="row">
+        		<div class="col-md-12">
+        			<div id="result" style="border: 1px solid black; font-size: 2em; text-align: center;">Result:</div>
+        		</div>
+        	</div>
+        </div>
+        <div class="row">
+        	<div class="col-md-12">
+        		   <form action="" class="form-inline" style="margin-top: 2em;margin-left: 2em;" id="control">
+                		<div class="form-group">
+                   		 	<label for="#pp">You</label>
+                    		<input type="text" class="form control" id="pp" readonly style='margin-right: 2em;text-align: center;'>
+                		</div>
+                		<div class="form-group">
+                   		 	<label for="#com">Computer</label>
+                    		<input type="text" class="form control" id="com" readonly style='text-align: center;'>
+                		</div>
+                		<button id="reset" onmouseover="this.style.background='black';this.style.color='blue';">Reset</button><hr>
+            	</form>
+        	</div>
+        </div>
+       </div>
+   </div>
+   <script>
+	   var playerChoice;
+	   var choice;
+	   var text;
+	   var pcChoice;
+	   var i = 0;
+	   var j = 0;
+	   var a;
+	 function play(playerChoice) {
+		   document.getElementById('player').innerHTML='...';
+		  	 if(playerChoice==1)
+		  	 {
+				 document.getElementById('player').innerHTML = 'paper';
+				 computer();
+				
+		  	 }
+			 else if (playerChoice==2)
+			 {
+				 document.getElementById('player').innerHTML 	=	'scissors';
+				  computer();
+				  
+			 }
+			 else if(playerChoice==3)
+			 {
+				 document.getElementById('player').innerHTML =	'stone';
+				  computer();
+				 }
+			
+       
+       	function computer (){
+       	 	   choice= ['paper','scissors','stone'];
+	   		   pcChoice = Math.floor(( Math.random()* 3) + 1);
+	   		   //alert(Math.random());
+
+	   		if (pcChoice == 1)
+			{
+				text = choice[0];
+			}
+	   		else if (pcChoice == 2)
+			{
+				text = choice[1];
+			}
+	   		else if(pcChoice == 3)
+			{
+				text = choice[2];
+			}
+			document.getElementById('pc').innerHTML = text;
+      	 }
+    
+      	 		if(playerChoice == 1 && pcChoice == 1)
+		{
+			document.getElementById('result').innerHTML = 'DRAW!' + '</br>' + 'NEXT TIME GOOD LUCK';
+		
+
+		}
+		  else if(playerChoice == 1 && pcChoice == 2)
+		   {
+			   document.getElementById('result').innerHTML = 'YOU LOST!' + '</br>' + 'NOOB!';
+			document.getElementById('com').value = ++ i;
+					
+
+
+		   }
+		else if(playerChoice == 1 && pcChoice == 3) 
+		   {
+			   document.getElementById('result').innerHTML = 'YOU WIN!' + '</br>' + 'CONGRATULATIONS!';
+			   document.getElementById('pp').value = ++ j;
+			   		
+v
+			
+		   }
+		else if(playerChoice == 2 && pcChoice == 1)
+		   {
+			   document.getElementById('result').innerHTML = 'YOU WIN!' + '</br>' + 'CONGRATULATIONS!';
+			   	 document.getElementById('pp').value = ++ j;
+			   	 		
+
+			  
+		   }
+		else if(playerChoice == 2 && pcChoice == 2)
+		   {
+			   document.getElementById('result').innerHTML = 'DRAW!' + '</br>' + 'NEXT TIME GOOD LUCK';
+			   		
+
+			  
+		   }
+		else if(playerChoice == 2 && pcChoice == 3)
+		   {
+			   document.getElementById('result').innerHTML = 'YOU LOST!' + '</br>' + 'NOOB!';
+			document.getElementById('com').value = ++ i;	
+			 }
+		else if(playerChoice == 3 && pcChoice == 1)
+		   {
+			   document.getElementById('result').innerHTML = 'YOU LOST!' + '</br>' + 'NOOB!';
+			document.getElementById('com').value = ++ i;
+				
+
+		   }
+		else if(playerChoice == 3 && pcChoice == 2)
+		   {
+			   document.getElementById('result').innerHTML = 'YOU WIN!' + '</br>' + 'CONGRATULATIONS!';
+			  document.getElementById('pp').value = ++ j;
+			  		
+
+			   
+		   }
+		else if(playerChoice == 3 && pcChoice == 3)
+		   {
+			   document.getElementById('result').innerHTML = 'DRAW!' + '</br>' + 'NEXT TIME GOOD LUCK';
+
+			 
+		   }	
+		   	var Pcres = document.getElementById('com').value;
+		  			var Youres = document.getElementById('pp').value;
+		  		if(document.getElementById('com').value > 5){
+					document.write("GameOver!" + "<br>");
+					document.write("Your point is" +" " + Youres + " : " + " " + "Point of computer is" + " " + Pcres );
+					document.getElementById('contain').style.display = 'none';
+				}else if(document.getElementById("pp").value > 5){
+					document.write("You are Master!" + "<br>");
+					document.write("Your point is" +" " + Youres + " : " + " " +"Point of computer is" + " " + Pcres );
+					document.getElementById('contain').style.display = 'none';
+				}
+		  
+	}
+      	 
+   </script>
+<script src="js/jquery.min.js"> </script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
